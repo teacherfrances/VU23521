@@ -3,274 +3,172 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Learning activities for VU23520</title>
+    <title>VU23520 - Give and respond to simple spoken information and directions</title>
     
     <!-- Import Fredoka: A super friendly, highly legible, rounded font ideal for learning spaces -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://googleapis.com" rel="stylesheet">
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
 
     <style>
-        /* General Page Setup */
         body {
             font-family: 'Fredoka', sans-serif;
-            background-color: #0A192F; /* Deep Navy Blue Page Background */
-            color: #FFFFFF; 
+            background-color: #f8fafc; 
             margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
+            padding: 40px 20px;
         }
-
-        /* Deep Navy Header with Gold Divider Line */
-        header {
-            background-color: #0A192F; 
-            color: #FFFFFF; 
-            width: 100%;
-            padding: 40px 0 25px 0;
+        h1 {
             text-align: center;
-            position: relative;
-            box-sizing: border-box;
-            border-bottom: 4px solid #D4AF37; /* Strong Gold Accent Line */
-        }
-
-        /* Dynamic, Accessible Big Headline Text */
-        header h1 {
-            margin: 0;
-            font-size: clamp(24px, 5vw, 38px); 
-            padding: 0 10%;
+            color: #1e293b; 
+            margin-bottom: 40px;
             font-weight: 700;
-            line-height: 1.3;
+            font-size: 2.5rem;
         }
-
-        /* MAIN CONTENT AREA CONTAINER (Provides stark white color contrast for the tiles) */
-        .main-content-canvas {
-            background-color: #FFFFFF; /* High contrast white backdrop area */
-            border: 4px solid #D4AF37; /* Wrapped completely in a structural gold border */
-            border-radius: 32px; /* Smooth, friendly round corners */
-            width: 92%;
-            max-width: 1250px;
-            margin: 40px auto 60px auto;
-            padding: 35px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
-            box-sizing: border-box;
-        }
-
-        /* Pale Yellow Learning Information Box inside the White Area */
-        .learning-box {
-            background-color: #FEF9E7; /* Pale Yellow / Cream */
-            border: 3px solid #E5C158; /* Muted Gold frame accent */
-            border-left: 10px solid #D4AF37; /* Heavy Gold anchor bar */
-            padding: 22px 28px;
-            border-radius: 20px;
-            margin-bottom: 35px;
-            box-sizing: border-box;
-        }
-
-        .learning-box h2 {
-            margin: 0 0 8px 0;
-            color: #1F2937; /* Dark Gray */
-            font-size: 18px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 700;
-        }
-
-        /* Large, non-intimidating instructional layout text */
-        .learning-box p {
-            margin: 0;
-            color: #1F2937; 
-            font-size: 20px; 
-            line-height: 1.6;
-            font-weight: 500;
-        }
-
-        /* FUTURE PROOF AUTO-GRID (Uses automatic CSS numbering counter engine) */
+        /* Grid Layout */
         .grid-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-            gap: 25px;
-            margin-bottom: 35px;
-            counter-reset: tile-counter; /* Initialize counter mechanism */
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 28px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
-
-        /* Individual Interactive Tile Setup */
+        /* Base Card Styling */
         .card {
-            background-color: #F9FAFB; /* Off-white tint to cleanly break from the background container */
-            border: 4px solid #D1D5DB; /* Fallback light gray border */
-            border-radius: 24px; /* Ultra-rounded friendly corners */
-            padding: 28px 28px 28px 85px; /* Generous left padding to house the number badge */
-            text-decoration: none; 
+            background: #ffffff;
+            border: 3px solid #e2e8f0; 
+            border-radius: 20px; 
+            padding: 24px;
+            text-decoration: none;
+            color: #334155;
+            transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             display: flex;
             flex-direction: column;
-            justify-content: flex-start;
-            text-align: left;
-            position: relative; /* Anchor for absolute positioning badge */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
-            transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
-                        background-color 0.2s, 
-                        border-color 0.2s,
-                        box-shadow 0.2s;
-            -webkit-tap-highlight-color: transparent;
         }
-
-        /* AUTOMATED FLOATING NUMBER BADGES WITH SUBTLE SHADOW */
-        .card::before {
-            counter-increment: tile-counter; /* Add 1 automatically per tile */
-            content: counter(tile-counter); /* Render calculation value */
-            position: absolute;
-            left: 22px;
-            top: 26px;
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            font-weight: 700;
-            color: #FFFFFF;
-            transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            
-            /* Clean base drop shadow layer */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12), 
-                        0 1px 3px rgba(0, 0, 0, 0.08); 
-        }
-
-        /* Extra Friendly Title Text Fonts */
         .card h3 {
             margin: 0 0 12px 0;
-            font-size: 24px; 
-            font-weight: 700;
+            font-weight: 600;
+            font-size: 1.35rem;
             line-height: 1.3;
         }
-
-        /* Larger, spacious descriptions */
         .card p {
-            color: #4B5563; /* Black/Dark Gray Text */
             margin: 0;
-            font-size: 18px; 
+            font-size: 15px;
             line-height: 1.5;
             font-weight: 400;
         }
 
-        /* -------------------------------------------------------------
-           HIGH CONTRAST THEMED ACCENTS & MATCHING BADGE BACKGROUNDS
-        ------------------------------------------------------------- */
-        
         /* 1. Yellow Theme (Warmers / Speaking) */
-        .card-yellow { border-color: #D4AF37; }
-        .card-yellow h3 { color: #B58A10; } 
-        .card-yellow::before { background-color: #D4AF37; } 
+        .card-yellow {
+            border-color: #fef08a;
+            box-shadow: 0 6px 0px #fef08a;
+        }
+        .card-yellow h3 { color: #a16207; }
+        .card-yellow:hover {
+            transform: translateY(-6px);
+            background-color: #fefce8;
+            box-shadow: 0 12px 0px #eab308;
+            border-color: #eab308;
+        }
 
         /* 2. Pink/Purple Theme (Quizzes / Revision) */
-        .card-pink { border-color: #DF4759; }
-        .card-pink h3 { color: #C92A3E; } 
-        .card-pink::before { background-color: #DF4759; } 
+        .card-pink {
+            border-color: #fbcfe8;
+            box-shadow: 0 6px 0px #fbcfe8;
+        }
+        .card-pink h3 { color: #be185d; }
+        .card-pink:hover {
+            transform: translateY(-6px);
+            background-color: #fdf2f8;
+            box-shadow: 0 12px 0px #ec4899;
+            border-color: #ec4899;
+        }
 
         /* 3. Green Theme (Excursions / Safaris) */
-        .card-green { border-color: #008080; }
-        .card-green h3 { color: #006666; } 
-        .card-green::before { background-color: #008080; } 
+        .card-green {
+            border-color: #bbf7d0;
+            box-shadow: 0 6px 0px #bbf7d0;
+        }
+        .card-green h3 { color: #15803d; }
+        .card-green:hover {
+            transform: translateY(-6px);
+            background-color: #f0fdf4;
+            box-shadow: 0 12px 0px #22c55e;
+            border-color: #22c55e;
+        }
 
         /* 4. Blue Theme (Adventures / Stories) */
-        .card-blue { border-color: #4682B4; }
-        .card-blue h3 { color: #1E6091; } 
-        .card-blue::before { background-color: #4682B4; } 
-
-        /* -------------------------------------------------------------
-           DYNAMIC HOVER & SELECTION REVERSED HIGHLIGHT STATES
-        ------------------------------------------------------------- */
-        @media (hover: hover) {
-            .card:hover {
-                transform: scale(1.04);
-                box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
-                background-color: #FFFFFF;
-            }
-            
-            /* Increases shadow depth on the badge dynamically when card is hovered */
-            .card:hover::before {
-                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 
-                            0 3px 6px rgba(0, 0, 0, 0.15);
-            }
+        .card-blue {
+            border-color: #bfdbfe;
+            box-shadow: 0 6px 0px #bfdbfe;
         }
-
-        /* SELECTION HIGHLIGHT MODE: Fully transforms card layout design to deep teal on click */
-        .card.active {
-            background-color: #008080 !important; /* Teal Primary Action Color */
-            border-color: #008080 !important;
-            transform: scale(1.05); 
-            box-shadow: 0 10px 25px rgba(0, 128, 128, 0.3);
+        .card-blue h3 { color: #1d4ed8; }
+        .card-blue:hover {
+            transform: translateY(-6px);
+            background-color: #eff6ff;
+            box-shadow: 0 12px 0px #3b82f6;
+            border-color: #3b82f6;
         }
+    </style>
+</head>
+<body>
 
-        /* Reverses all card layout fonts and badges completely to white when selected */
-        .card.active h3, 
-        .card.active p {
-            color: #FFFFFF !important; 
-        }
-        
-        .card.active::before {
-            background-color: #FFFFFF !important; 
-            color: #008080 !important; 
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); 
-        }
+    <h1>🏫 Campsie TAFE: Friday Conversation Class ✨</h1>
 
-        /* Reset System Button Module Wrapper */
-        .btn-restart-container {
-            display: flex;
-            justify-content: flex-end;
-        }
+    <div class="grid-container">
+        <!-- Activity 1 -->
+        <a href="https://ultimotafedocs.github.io/prepositionalcollocationswarmer/" class="card card-yellow" target="_self">
+            <h3>Prepositional collocations warmer</h3>
+            <p>Pick a number → use the expression to make your own sentence starting with "I"</p>
+        </a>
 
-        .btn-restart {
-            background-color: #FFFFFF; 
-            color: #1F2937; 
-            text-decoration: none;
-            padding: 16px 32px;
-            border-radius: 16px;
-            font-size: 18px; 
-            font-weight: 700;
-            border: 3px solid #D4AF37; 
-            transition: all 0.2s ease;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-        }
+        <!-- Activity 2 -->
+        <a href="https://ultimotafedocs.github.io/prepositionalcollocations/" class="card card-pink" target="_self">
+            <h3>Prepositional collocations revision</h3>
+            <p>A short online quiz about prepositional collocations</p>
+        </a>
 
-        .btn-restart:hover {
-            background-color: #FEF9E7; 
-            transform: translateY(-2px);
-        }
+        <!-- Activity 3 -->
+        <a href="https://ultimotafedocs.github.io/fridayclassartgalleryexcursionquestions/" class="card card-yellow" target="_self">
+            <h3>Questions after the excursion</h3>
+            <p>Spin the wheel → answer the question</p>
+        </a>
 
-        /* -------------------------------------------------------------
-           MOBILE SMARTPHONE LAYOUT RESPONSIVENESS OVERRIDES
-        ------------------------------------------------------------- */
-        @media (max-width: 768px) {
-            header {
-                padding: 30px 0;
-            }
-            header h1 {
-                padding: 0 20px;
-            }
-            .main-content-canvas {
-                width: 95%;
-                padding: 20px;
-                margin: 20px auto;
-                border-radius: 24px;
-            }
-            .learning-box {
-                padding: 16px;
-                border-radius: 16px;
-            }
-            .learning-box p {
-                font-size: 18px;
-            }
-            .grid-container {
-                grid-template-columns: 1fr; /* Drops into single block stack on mobile devices */
-                gap: 20px;
-            }
-            .card {
-                padding: 24px 24px 24px 76px; 
-            }
-            .card::before {
-                left: 18px;
-                top: 24px;
+         <!-- Activity 4 -->
+        <a href="https://ultimotafedocs.github.io/fridayexcursion/" class="card card-blue" target="_self">
+            <h3>Choose your own adventure: Excursion to </h3>
+            <p>Your ending depends on the answers you choose!</p>
+        </a>
+
+         <!-- Activity 5 -->
+        <a href="https://ultimotafedocs.github.io/excursion/" class="card card-green" target="_self">
+            <h3>Photo proof safari</h3>
+            <p>A Scavenger Hunt at the Art Gallery of NSW</p>
+        </a>
+
+            <!-- Activity 6 -->
+        <a href="https://ultimotafedocs.github.io/excursionreflection_artgalleryofnsw/" class="card card-yellow" target="_self">
+            <h3>Talk about an artwork</h3>
+            <p>Present your answers in front of the class</p>
+        </a>
+
+           <!-- Activity 7 -->
+        <a href="https://ultimotafedocs.github.io/Backfromtheexcursion1/" class="card card-yellow" target="_self">
+            <h3>Back from the excursion (speaking)</h3>
+            <p>Completing key phrases using your own words</p>
+        </a>
+
+           <!-- Activity 8 -->
+        <a href="https://ultimotafedocs.github.io/Backfromtheexcursion2/" class="card card-pink" target="_self">
+            <h3>Back from the excursion (quiz)</h3>
+            <p>Check how many phrases you know!</p>
+        </a>
+
+             <!-- Activity 9 -->
+        <a href="https://ultimotafedocs.github.io/chooseyourownadventure_alex/" class="card card-blue" target="_self">
+            <h3>Choose your own adventure: Alex's story</h3>
+            <p>Read each page and make choices.</p>
+        </a>
+    </div>
+
+</body>
+</html>
