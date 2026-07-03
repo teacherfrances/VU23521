@@ -3,274 +3,182 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Learning activities for VU23520</title>
-    
-    <!-- Import Fredoka: A super friendly, highly legible, rounded font ideal for learning spaces -->
-    <link rel="preconnect" href="https://googleapis.com">
-    <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
-
+    <title>Bright Sparks | Fun Learning</title>
+    <!-- Google Fonts: Fredoka is perfect for friendly, big designs -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        /* General Page Setup */
-        body {
-            font-family: 'Fredoka', sans-serif;
-            background-color: #0A192F; /* Deep Navy Blue Page Background */
-            color: #FFFFFF; 
+        :root {
+            --bg-color: #f0f9ff;
+            --primary-color: #4cc9f0;
+            --secondary-color: #7209b7;
+            --accent-pink: #f72585;
+            --accent-orange: #ff9f1c;
+            --accent-green: #4caf50;
+            --text-dark: #2b2d42;
+            --card-white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
         }
 
-        /* Deep Navy Header with Gold Divider Line */
+        body {
+            font-family: 'Fredoka', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            line-height: 1.4;
+            padding-bottom: 50px;
+        }
+
+        /* Hero Section */
         header {
-            background-color: #0A192F; 
-            color: #FFFFFF; 
-            width: 100%;
-            padding: 40px 0 25px 0;
             text-align: center;
-            position: relative;
-            box-sizing: border-box;
-            border-bottom: 4px solid #D4AF37; /* Strong Gold Accent Line */
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #4cc9f0 0%, #4361ee 100%);
+            color: white;
+            border-bottom-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
 
-        /* Dynamic, Accessible Big Headline Text */
-        header h1 {
-            margin: 0;
-            font-size: clamp(24px, 5vw, 38px); 
-            padding: 0 10%;
-            font-weight: 700;
-            line-height: 1.3;
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
         }
 
-        /* MAIN CONTENT AREA CONTAINER (Provides stark white color contrast for the tiles) */
-        .main-content-canvas {
-            background-color: #FFFFFF; /* High contrast white backdrop area */
-            border: 4px solid #D4AF37; /* Wrapped completely in a structural gold border */
-            border-radius: 32px; /* Smooth, friendly round corners */
-            width: 92%;
-            max-width: 1250px;
-            margin: 40px auto 60px auto;
-            padding: 35px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
-            box-sizing: border-box;
+        header p {
+            font-size: 1.4rem;
+            opacity: 0.9;
         }
 
-        /* Pale Yellow Learning Information Box inside the White Area */
-        .learning-box {
-            background-color: #FEF9E7; /* Pale Yellow / Cream */
-            border: 3px solid #E5C158; /* Muted Gold frame accent */
-            border-left: 10px solid #D4AF37; /* Heavy Gold anchor bar */
-            padding: 22px 28px;
-            border-radius: 20px;
-            margin-bottom: 35px;
-            box-sizing: border-box;
+        /* Responsive Grid Layout */
+        .container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
         }
 
-        .learning-box h2 {
-            margin: 0 0 8px 0;
-            color: #1F2937; /* Dark Gray */
-            font-size: 18px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 700;
-        }
-
-        /* Large, non-intimidating instructional layout text */
-        .learning-box p {
-            margin: 0;
-            color: #1F2937; 
-            font-size: 20px; 
-            line-height: 1.6;
-            font-weight: 500;
-        }
-
-        /* FUTURE PROOF AUTO-GRID (Uses automatic CSS numbering counter engine) */
-        .grid-container {
+        .activity-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-            gap: 25px;
-            margin-bottom: 35px;
-            counter-reset: tile-counter; /* Initialize counter mechanism */
+            /* This line makes it responsive: it fits as many 280px tiles as possible */
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
         }
 
-        /* Individual Interactive Tile Setup */
+        /* Activity Tiles */
         .card {
-            background-color: #F9FAFB; /* Off-white tint to cleanly break from the background container */
-            border: 4px solid #D1D5DB; /* Fallback light gray border */
-            border-radius: 24px; /* Ultra-rounded friendly corners */
-            padding: 28px 28px 28px 85px; /* Generous left padding to house the number badge */
-            text-decoration: none; 
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            text-align: left;
-            position: relative; /* Anchor for absolute positioning badge */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
-            transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
-                        background-color 0.2s, 
-                        border-color 0.2s,
-                        box-shadow 0.2s;
-            -webkit-tap-highlight-color: transparent;
+            background: var(--card-white);
+            border-radius: 30px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 0px rgba(0,0,0,0.05);
+            border: 3px solid transparent;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
         }
 
-        /* AUTOMATED FLOATING NUMBER BADGES WITH SUBTLE SHADOW */
-        .card::before {
-            counter-increment: tile-counter; /* Add 1 automatically per tile */
-            content: counter(tile-counter); /* Render calculation value */
-            position: absolute;
-            left: 22px;
-            top: 26px;
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            font-weight: 700;
-            color: #FFFFFF;
-            transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            
-            /* Clean base drop shadow layer */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12), 
-                        0 1px 3px rgba(0, 0, 0, 0.08); 
+        .card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
         }
 
-        /* Extra Friendly Title Text Fonts */
-        .card h3 {
-            margin: 0 0 12px 0;
-            font-size: 24px; 
-            font-weight: 700;
-            line-height: 1.3;
+        /* Unique colors for tiles */
+        .card.math { border-bottom: 8px solid var(--accent-orange); }
+        .card.science { border-bottom: 8px solid var(--primary-color); }
+        .card.art { border-bottom: 8px solid var(--accent-pink); }
+        .card.reading { border-bottom: 8px solid var(--accent-green); }
+
+        .icon {
+            font-size: 4rem;
+            margin-bottom: 15px;
+            display: block;
         }
 
-        /* Larger, spacious descriptions */
+        h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+
         .card p {
-            color: #4B5563; /* Black/Dark Gray Text */
-            margin: 0;
-            font-size: 18px; 
-            line-height: 1.5;
-            font-weight: 400;
+            font-size: 1.1rem;
+            color: #666;
         }
 
-        /* -------------------------------------------------------------
-           HIGH CONTRAST THEMED ACCENTS & MATCHING BADGE BACKGROUNDS
-        ------------------------------------------------------------- */
-        
-        /* 1. Yellow Theme (Warmers / Speaking) */
-        .card-yellow { border-color: #D4AF37; }
-        .card-yellow h3 { color: #B58A10; } 
-        .card-yellow::before { background-color: #D4AF37; } 
-
-        /* 2. Pink/Purple Theme (Quizzes / Revision) */
-        .card-pink { border-color: #DF4759; }
-        .card-pink h3 { color: #C92A3E; } 
-        .card-pink::before { background-color: #DF4759; } 
-
-        /* 3. Green Theme (Excursions / Safaris) */
-        .card-green { border-color: #008080; }
-        .card-green h3 { color: #006666; } 
-        .card-green::before { background-color: #008080; } 
-
-        /* 4. Blue Theme (Adventures / Stories) */
-        .card-blue { border-color: #4682B4; }
-        .card-blue h3 { color: #1E6091; } 
-        .card-blue::before { background-color: #4682B4; } 
-
-        /* -------------------------------------------------------------
-           DYNAMIC HOVER & SELECTION REVERSED HIGHLIGHT STATES
-        ------------------------------------------------------------- */
-        @media (hover: hover) {
-            .card:hover {
-                transform: scale(1.04);
-                box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
-                background-color: #FFFFFF;
-            }
-            
-            /* Increases shadow depth on the badge dynamically when card is hovered */
-            .card:hover::before {
-                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 
-                            0 3px 6px rgba(0, 0, 0, 0.15);
-            }
-        }
-
-        /* SELECTION HIGHLIGHT MODE: Fully transforms card layout design to deep teal on click */
-        .card.active {
-            background-color: #008080 !important; /* Teal Primary Action Color */
-            border-color: #008080 !important;
-            transform: scale(1.05); 
-            box-shadow: 0 10px 25px rgba(0, 128, 128, 0.3);
-        }
-
-        /* Reverses all card layout fonts and badges completely to white when selected */
-        .card.active h3, 
-        .card.active p {
-            color: #FFFFFF !important; 
-        }
-        
-        .card.active::before {
-            background-color: #FFFFFF !important; 
-            color: #008080 !important; 
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); 
-        }
-
-        /* Reset System Button Module Wrapper */
-        .btn-restart-container {
-            display: flex;
-            justify-content: flex-end;
-        }
-
-        .btn-restart {
-            background-color: #FFFFFF; 
-            color: #1F2937; 
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 25px;
+            background-color: var(--text-dark);
+            color: white;
             text-decoration: none;
-            padding: 16px 32px;
-            border-radius: 16px;
-            font-size: 18px; 
-            font-weight: 700;
-            border: 3px solid #D4AF37; 
-            transition: all 0.2s ease;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border-radius: 50px;
+            font-weight: 600;
+            transition: background 0.3s;
         }
 
-        .btn-restart:hover {
-            background-color: #FEF9E7; 
-            transform: translateY(-2px);
+        .card:hover .btn {
+            background-color: var(--secondary-color);
         }
 
-        /* -------------------------------------------------------------
-           MOBILE SMARTPHONE LAYOUT RESPONSIVENESS OVERRIDES
-        ------------------------------------------------------------- */
-        @media (max-width: 768px) {
-            header {
-                padding: 30px 0;
-            }
-            header h1 {
-                padding: 0 20px;
-            }
-            .main-content-canvas {
-                width: 95%;
-                padding: 20px;
-                margin: 20px auto;
-                border-radius: 24px;
-            }
-            .learning-box {
-                padding: 16px;
-                border-radius: 16px;
-            }
-            .learning-box p {
-                font-size: 18px;
-            }
-            .grid-container {
-                grid-template-columns: 1fr; /* Drops into single block stack on mobile devices */
-                gap: 20px;
-            }
-            .card {
-                padding: 24px 24px 24px 76px; 
-            }
-            .card::before {
-                left: 18px;
-                top: 24px;
+        /* Tablet/Mobile Adjustments */
+        @media (max-width: 600px) {
+            h1 { font-size: 2.5rem; }
+            header { padding: 40px 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Bright Sparks ✨</h1>
+        <p>Pick an adventure and start learning today!</p>
+    </header>
+
+    <main class="container">
+        <div class="activity-grid">
+            
+            <!-- Activity 1: Math -->
+            <div class="card math">
+                <span class="icon">🔢</span>
+                <h3>Number Fun</h3>
+                <p>Learn counting and shapes with colorful puzzles!</p>
+                <a href="#" class="btn">Play Now</a>
+            </div>
+
+            <!-- Activity 2: Science -->
+            <div class="card science">
+                <span class="icon">🧪</span>
+                <h3>Space Explorer</h3>
+                <p>Travel through the stars and visit every planet.</p>
+                <a href="#" class="btn">Play Now</a>
+            </div>
+
+            <!-- Activity 3: Art -->
+            <div class="card art">
+                <span class="icon">🎨</span>
+                <h3>Doodle Studio</h3>
+                <p>Express your creativity with digital paint and stickers.</p>
+                <a href="#" class="btn">Play Now</a>
+            </div>
+
+            <!-- Activity 4: Reading -->
+            <div class="card reading">
+                <span class="icon">📚</span>
+                <h3>Story Time</h3>
+                <p>Interactive books that come to life as you read.</p>
+                <a href="#" class="btn">Play Now</a>
+            </div>
+
+            <!-- FUTURE ROOM: Simply copy a 'card' div and paste it here to add more! -->
+
+        </div>
+    </main>
+
+</body>
+</html>
