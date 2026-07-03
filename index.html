@@ -3,19 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bright Sparks | Fun Learning</title>
-    <!-- Google Fonts: Fredoka is perfect for friendly, big designs -->
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
+    <title>Executive Learning Portal | 15 Modules</title>
+    
+    <!-- Professional Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
     <style>
         :root {
-            --bg-color: #f0f9ff;
-            --primary-color: #4cc9f0;
-            --secondary-color: #7209b7;
-            --accent-pink: #f72585;
-            --accent-orange: #ff9f1c;
-            --accent-green: #4caf50;
-            --text-dark: #2b2d42;
+            --accent-maroon: #631111;    /* Deep Maroon */
+            --accent-maroon-light: #8b1a1a;
+            --bg-grey: #f2f2f2;         /* Light Grey Background */
+            --text-black: #1a1a1a;      /* Matte Black */
+            --text-grey: #555555;       /* Muted Grey */
             --card-white: #ffffff;
+            --border-grey: #dddddd;
+            --shadow: 0 4px 20px rgba(0,0,0,0.08);
+            --shadow-hover: 0 12px 30px rgba(0,0,0,0.15);
         }
 
         * {
@@ -25,160 +30,206 @@
         }
 
         body {
-            font-family: 'Fredoka', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-dark);
-            line-height: 1.4;
-            padding-bottom: 50px;
+            font-family: 'Inter', -apple-system, sans-serif;
+            background-color: var(--bg-grey);
+            color: var(--text-black);
+            line-height: 1.6;
+            padding-bottom: 100px;
         }
 
-        /* Hero Section */
+        /* Hero Header */
         header {
-            text-align: center;
-            padding: 60px 20px;
-            background: linear-gradient(135deg, #4cc9f0 0%, #4361ee 100%);
+            background-color: var(--text-black);
             color: white;
-            border-bottom-left-radius: 50px;
-            border-bottom-right-radius: 50px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            padding: 80px 24px;
+            text-align: center;
+            border-bottom: 6px solid var(--accent-maroon);
         }
 
-        h1 {
-            font-size: 3.5rem;
+        header h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            letter-spacing: -1px;
             margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            text-transform: uppercase;
         }
 
         header p {
-            font-size: 1.4rem;
-            opacity: 0.9;
+            font-size: 1.1rem;
+            color: #999;
+            max-width: 700px;
+            margin: 0 auto;
         }
 
-        /* Responsive Grid Layout */
         .container {
-            max-width: 1200px;
-            margin: 50px auto;
-            padding: 0 20px;
+            max-width: 1400px;
+            margin: 60px auto;
+            padding: 0 24px;
         }
 
-        .activity-grid {
+        /* The Grid System */
+        .learning-grid {
             display: grid;
-            /* This line makes it responsive: it fits as many 280px tiles as possible */
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
         }
 
-        /* Activity Tiles */
+        /* Base Card Styling */
         .card {
-            background: var(--card-white);
-            border-radius: 30px;
-            padding: 30px;
-            text-align: center;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 0px rgba(0,0,0,0.05);
-            border: 3px solid transparent;
-            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            border-radius: 4px;
+            padding: 35px;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             position: relative;
-            overflow: hidden;
+            box-shadow: var(--shadow);
+            border: 1px solid transparent;
+            background-color: var(--card-white);
         }
 
+        /* Hover Animation */
         .card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--accent-maroon);
         }
 
-        /* Unique colors for tiles */
-        .card.math { border-bottom: 8px solid var(--accent-orange); }
-        .card.science { border-bottom: 8px solid var(--primary-color); }
-        .card.art { border-bottom: 8px solid var(--accent-pink); }
-        .card.reading { border-bottom: 8px solid var(--accent-green); }
+        /* Main Lesson Override */
+        .card.main-lesson {
+            background-color: var(--text-black);
+            color: #ffffff;
+            border: none;
+        }
 
-        .icon {
-            font-size: 4rem;
-            margin-bottom: 15px;
-            display: block;
+        .card.main-lesson .number {
+            color: var(--accent-maroon-light);
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        /* Revision Parts Override */
+        .card.revision-part .number {
+            color: var(--text-black);
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+        }
+
+        .card.revision-part .number span {
+            font-size: 0.9rem;
+            color: var(--accent-maroon);
+            font-weight: 800;
+            text-transform: uppercase;
         }
 
         h3 {
-            font-size: 1.8rem;
-            margin-bottom: 10px;
-            color: var(--text-dark);
+            font-size: 1.25rem;
+            margin-bottom: 8px;
+            font-weight: 700;
         }
 
-        .card p {
-            font-size: 1.1rem;
-            color: #666;
+        p.desc {
+            font-size: 0.9rem;
+            color: var(--text-grey);
         }
 
-        .btn {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 25px;
-            background-color: var(--text-dark);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: background 0.3s;
+        .main-lesson p.desc {
+            color: #888;
         }
 
-        .card:hover .btn {
-            background-color: var(--secondary-color);
+        .tag {
+            margin-top: auto;
+            padding-top: 20px;
+            font-size: 0.65rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent-maroon);
         }
 
-        /* Tablet/Mobile Adjustments */
-        @media (max-width: 600px) {
-            h1 { font-size: 2.5rem; }
-            header { padding: 40px 15px; }
+        .main-lesson .tag {
+            color: #999;
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            header h1 { font-size: 1.8rem; }
+            .learning-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>Bright Sparks ✨</h1>
-        <p>Pick an adventure and start learning today!</p>
+        <h1>Executive Professional Pathway</h1>
+        <p>A structured 15-module curriculum for advanced leadership and strategic development.</p>
     </header>
 
-    <main class="container">
-        <div class="activity-grid">
+    <div class="container">
+        <main class="learning-grid">
             
-            <!-- Activity 1: Math -->
-            <div class="card math">
-                <span class="icon">🔢</span>
-                <h3>Number Fun</h3>
-                <p>Learn counting and shapes with colorful puzzles!</p>
-                <a href="#" class="btn">Play Now</a>
-            </div>
+            <script>
+                // Array of 15 Professional Lesson Titles
+                const modules = [
+                    "Foundations of Leadership", 
+                    "Strategic Thinking", 
+                    "Operational Excellence",
+                    "Financial Acumen", 
+                    "Organizational Behavior", 
+                    "Market Analysis",
+                    "Digital Transformation", 
+                    "Crisis Management", 
+                    "Ethical Governance",
+                    "Innovation Systems", 
+                    "Global Logistics", 
+                    "Advanced Negotiation", 
+                    "Executive Communication",
+                    "Talent Development",
+                    "Strategic Implementation"
+                ];
 
-            <!-- Activity 2: Science -->
-            <div class="card science">
-                <span class="icon">🧪</span>
-                <h3>Space Explorer</h3>
-                <p>Travel through the stars and visit every planet.</p>
-                <a href="#" class="btn">Play Now</a>
-            </div>
+                const grid = document.querySelector('.learning-grid');
 
-            <!-- Activity 3: Art -->
-            <div class="card art">
-                <span class="icon">🎨</span>
-                <h3>Doodle Studio</h3>
-                <p>Express your creativity with digital paint and stickers.</p>
-                <a href="#" class="btn">Play Now</a>
-            </div>
+                // Loop to generate 15 Modules (each with 1 main lesson + 2 revisions)
+                for (let i = 1; i <= 15; i++) {
+                    const title = modules[i-1];
+                    const num = i < 10 ? '0' + i : i;
 
-            <!-- Activity 4: Reading -->
-            <div class="card reading">
-                <span class="icon">📚</span>
-                <h3>Story Time</h3>
-                <p>Interactive books that come to life as you read.</p>
-                <a href="#" class="btn">Play Now</a>
-            </div>
+                    // 1. Main Lesson Tile
+                    grid.innerHTML += `
+                        <a href="#" class="card main-lesson">
+                            <div class="number">${num}</div>
+                            <h3>${title}</h3>
+                            <p class="desc">Core concepts and leadership frameworks defining ${title.toLowerCase()}.</p>
+                            <span class="tag">Primary Module</span>
+                        </a>
+                        
+                        <a href="#" class="card revision-part">
+                            <div class="number">${i}<span>Part A</span></div>
+                            <h3>Revision Session</h3>
+                            <p class="desc">Deep-dive analysis and theoretical review of Module ${i} objectives.</p>
+                            <span class="tag">Review</span>
+                        </a>
 
-            <!-- FUTURE ROOM: Simply copy a 'card' div and paste it here to add more! -->
+                        <a href="#" class="card revision-part">
+                            <div class="number">${i}<span>Part B</span></div>
+                            <h3>Practical Lab</h3>
+                            <p class="desc">Case-study application and workflow exercises for Module ${i}.</p>
+                            <span class="tag">Review</span>
+                        </a>
+                    `;
+                }
+            </script>
 
-        </div>
-    </main>
+        </main>
+    </div>
 
 </body>
 </html>
