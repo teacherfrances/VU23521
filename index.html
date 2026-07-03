@@ -4,118 +4,90 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Executive Learning Pathway</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --red: #d91b1b; 
-            --bg: #f4f4f5;
-            --black: #111111;
-            --grey: #52525b;
-            --white: #ffffff;
-            --border: #e4e4e7;
-        }
+        :root { --red: #d91b1b; --bg: #f4f4f5; --black: #111111; --grey: #52525b; --white: #ffffff; --border: #e4e4e7; }
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg);
-            color: var(--black);
-            line-height: 1.5;
-            padding-bottom: 80px;
-        }
-        header {
-            background-color: var(--black);
-            color: white;
-            padding: 60px 20px;
-            text-align: center;
-            border-bottom: 6px solid var(--red);
-        }
-        header h1 { font-size: clamp(1.8rem, 5vw, 2.5rem); font-weight: 800; text-transform: uppercase; margin-bottom: 8px; }
-        header p { color: #a1a1aa; font-size: 1.1rem; }
-        .container { max-width: 1400px; margin: 40px auto; padding: 0 20px; }
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-        }
-        .card {
-            background: var(--white);
-            padding: 30px;
-            text-decoration: none;
-            color: inherit;
-            border-radius: 8px;
-            display: flex;
-            flex-direction: column;
-            transition: all 0.3s ease;
-            border: 1px solid var(--border);
-            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-        }
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1);
-            border-color: var(--red);
-        }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg); color: var(--black); line-height: 1.5; padding-bottom: 80px; }
+        header { background-color: var(--black); color: white; padding: 50px 20px; text-align: center; border-bottom: 5px solid var(--red); }
+        header h1 { font-size: 2.2rem; font-weight: 800; text-transform: uppercase; margin-bottom: 5px; }
+        header p { color: #a1a1aa; font-size: 1rem; }
+        .container { max-width: 1400px; margin: 30px auto; padding: 0 15px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+        .card { background: var(--white); padding: 25px; text-decoration: none; color: inherit; border-radius: 6px; display: flex; flex-direction: column; transition: all 0.3s ease; border: 1px solid var(--border); box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 15px 20px -5px rgba(0,0,0,0.1); border-color: var(--red); }
         .main-lesson { background-color: var(--black); color: white; border: none; }
-        .main-lesson .num { color: var(--red); font-size: 3rem; font-weight: 800; line-height: 1; margin-bottom: 10px; }
+        .main-lesson .num { color: var(--red); font-size: 2.8rem; font-weight: 800; line-height: 1; margin-bottom: 5px; }
         .main-lesson p { color: #a1a1aa; }
-        .revision .num { color: var(--black); font-size: 2rem; font-weight: 700; margin-bottom: 10px; }
-        .revision .num span { font-size: 0.8rem; color: var(--red); font-weight: 800; text-transform: uppercase; margin-left: 5px; }
-        h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 8px; }
-        p { font-size: 0.9rem; color: var(--grey); }
-        .tag { margin-top: auto; padding-top: 20px; font-size: 0.65rem; font-weight: 800; text-transform: uppercase; color: var(--red); }
+        .revision .num { color: var(--black); font-size: 1.8rem; font-weight: 700; margin-bottom: 5px; }
+        .revision .num span { font-size: 0.75rem; color: var(--red); font-weight: 800; text-transform: uppercase; margin-left: 5px; }
+        h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 5px; }
+        p { font-size: 0.85rem; color: var(--grey); }
+        .tag { margin-top: auto; padding-top: 15px; font-size: 0.6rem; font-weight: 800; text-transform: uppercase; color: var(--red); }
         @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
-
-<header>
-    <h1>Executive Professional Pathway</h1>
-    <p>Complete Curriculum: Modules 01 - 15</p>
-</header>
-
-<div class="container">
-    <main class="grid">
-        
-        <!-- Module 1 -->
-        <a href="l1.html" target="_self" class="card main-lesson"><div class="num">01</div><h3>Leadership Foundations</h3><p>Core executive management frameworks.</p><div class="tag">Main Module</div></a>
-        <a href="l1a.html" target="_self" class="card revision"><div class="num">1<span>Part A</span></div><h3>Theory Review</h3><p>Analytical framework review.</p><div class="tag">Revision</div></a>
-        <a href="l1b.html" target="_self" class="card revision"><div class="num">1<span>Part B</span></div><h3>Practical Lab</h3><p>Case study applications.</p><div class="tag">Revision</div></a>
-
-        <!-- Module 2 -->
-        <a href="l2.html" target="_self" class="card main-lesson"><div class="num">02</div><h3>Strategic Thinking</h3><p>Developing competitive advantages.</p><div class="tag">Main Module</div></a>
-        <a href="l2a.html" target="_self" class="card revision"><div class="num">2<span>Part A</span></div><h3>Strategy Review</h3><p>Strategic model analysis.</p><div class="tag">Revision</div></a>
-        <a href="l2b.html" target="_self" class="card revision"><div class="num">2<span>Part B</span></div><h3>Risk Lab</h3><p>Planning and risk assessment.</p><div class="tag">Revision</div></a>
-
-        <!-- Module 3 -->
-        <a href="l3.html" target="_self" class="card main-lesson"><div class="num">03</div><h3>Operational Excellence</h3><p>Optimizing organizational workflows.</p><div class="tag">Main Module</div></a>
-        <a href="l3a.html" target="_self" class="card revision"><div class="num">3<span>Part A</span></div><h3>Process Review</h3><p>Efficiency metrics mapping.</p><div class="tag">Revision</div></a>
-        <a href="l3b.html" target="_self" class="card revision"><div class="num">3<span>Part B</span></div><h3>Quality Lab</h3><p>Standardization auditing.</p><div class="tag">Revision</div></a>
-
-        <!-- Module 4 -->
-        <a href="l4.html" target="_self" class="card main-lesson"><div class="num">04</div><h3>Financial Acumen</h3><p>Fiscal and capital management.</p><div class="tag">Main Module</div></a>
-        <a href="l4a.html" target="_self" class="card revision"><div class="num">4<span>Part A</span></div><h3>Finance Review</h3><p>Budgetary analysis logic.</p><div class="tag">Revision</div></a>
-        <a href="l4b.html" target="_self" class="card revision"><div class="num">4<span>Part B</span></div><h3>Data Lab</h3><p>Financial dataset analysis.</p><div class="tag">Revision</div></a>
-
-        <!-- Module 5 -->
-        <a href="l5.html" target="_self" class="card main-lesson"><div class="num">05</div><h3>Org Behavior</h3><p>Managing culture and dynamics.</p><div class="tag">Main Module</div></a>
-        <a href="l5a.html" target="_self" class="card revision"><div class="num">5<span>Part A</span></div><h3>Culture Review</h3><p>Conflict resolution models.</p><div class="tag">Revision</div></a>
-        <a href="l5b.html" target="_self" class="card revision"><div class="num">5<span>Part B</span></div><h3>Team Lab</h3><p>Communication simulations.</p><div class="tag">Revision</div></a>
-
-        <!-- Module 6 -->
-        <a href="l6.html" target="_self" class="card main-lesson"><div class="num">06</div><h3>Market Analysis</h3><p>Evaluating external factors.</p><div class="tag">Main Module</div></a>
-        <a href="l6a.html" target="_self" class="card revision"><div class="num">6<span>Part A</span></div><h3>SWOT Review</h3><p>Advanced PESTEL analysis.</p><div class="tag">Revision</div></a>
-        <a href="l6b.html" target="_self" class="card revision"><div class="num">6<span>Part B</span></div><h3>Trend Lab</h3><p>Consumer behavior modeling.</p><div class="tag">Revision</div></a>
-
-        <!-- Module 7 -->
-        <a href="l7.html" target="_self" class="card main-lesson"><div class="num">07</div><h3>Digital Transformation</h3><p>Navigating technology landscapes.</p><div class="tag">Main Module</div></a>
-        <a href="l7a.html" target="_self" class="card revision"><div class="num">7<span>Part A</span></div><h3>Tech Review</h3><p>AI and Cloud integration.</p><div class="tag">Revision</div></a>
-        <a href="l7b.html" target="_self" class="card revision"><div class="num">7<span>Part B</span></div><h3>Agile Lab</h3><p>Deployment cycle management.</p><div class="tag">Revision</div></a>
-
-        <!-- Module 8 -->
-        <a href="l8.html" target="_self" class="card main-lesson"><div class="num">08</div><h3>Crisis Management</h3><p>Leading through uncertainty.</p><div class="tag">Main Module</div></a>
-        <a href="l8a.html" target="_self" class="card revision"><div class="num">8<span>Part A</span></div><h3>Risk Review</h3><p>Mitigation planning.</p><div class="tag">Revision</div></a>
-        <a href="l8b.html" target="_self" class="card revision"><div class="num">8<span>Part B</span></div><h3>Stress Lab</h3><p>Decision making sessions.</p><div class="tag">Revision</div></a>
-
-        <!-- Module 9 -->
-        <a href="l9.html" target="_self" class="card main-lesson"><div class="num">09</div><h3>Ethical Governance</h3><p>Professional standards/integrity.</p><div class="tag">Main Module</div></a>
+<header><h1>Executive Professional Pathway</h1><p>Lessons 01 - 15 Curriculum</p></header>
+<div class="container"><main class="grid">
+    <!-- L1 -->
+    <a href="l1.html" target="_self" class="card main-lesson"><div class="num">01</div><h3>Foundations</h3><p>Core executive frameworks.</p><div class="tag">Main</div></a>
+    <a href="l1a.html" target="_self" class="card revision"><div class="num">1<span>Pt A</span></div><h3>Revision</h3><p>Theory analysis.</p><div class="tag">Review</div></a>
+    <a href="l1b.html" target="_self" class="card revision"><div class="num">1<span>Pt B</span></div><h3>Lab</h3><p>Practical application.</p><div class="tag">Review</div></a>
+    <!-- L2 -->
+    <a href="l2.html" target="_self" class="card main-lesson"><div class="num">02</div><h3>Strategy</h3><p>Competitive advantages.</p><div class="tag">Main</div></a>
+    <a href="l2a.html" target="_self" class="card revision"><div class="num">2<span>Pt A</span></div><h3>Revision</h3><p>Model analysis.</p><div class="tag">Review</div></a>
+    <a href="l2b.html" target="_self" class="card revision"><div class="num">2<span>Pt B</span></div><h3>Lab</h3><p>Risk assessment.</p><div class="tag">Review</div></a>
+    <!-- L3 -->
+    <a href="l3.html" target="_self" class="card main-lesson"><div class="num">03</div><h3>Operations</h3><p>Optimizing workflows.</p><div class="tag">Main</div></a>
+    <a href="l3a.html" target="_self" class="card revision"><div class="num">3<span>Pt A</span></div><h3>Revision</h3><p>Process metrics.</p><div class="tag">Review</div></a>
+    <a href="l3b.html" target="_self" class="card revision"><div class="num">3<span>Pt B</span></div><h3>Lab</h3><p>Quality auditing.</p><div class="tag">Review</div></a>
+    <!-- L4 -->
+    <a href="l4.html" target="_self" class="card main-lesson"><div class="num">04</div><h3>Finance</h3><p>Fiscal management.</p><div class="tag">Main</div></a>
+    <a href="l4a.html" target="_self" class="card revision"><div class="num">4<span>Pt A</span></div><h3>Revision</h3><p>Budgetary logic.</p><div class="tag">Review</div></a>
+    <a href="l4b.html" target="_self" class="card revision"><div class="num">4<span>Pt B</span></div><h3>Lab</h3><p>Data datasets.</p><div class="tag">Review</div></a>
+    <!-- L5 -->
+    <a href="l5.html" target="_self" class="card main-lesson"><div class="num">05</div><h3>Behavior</h3><p>Managing culture.</p><div class="tag">Main</div></a>
+    <a href="l5a.html" target="_self" class="card revision"><div class="num">5<span>Pt A</span></div><h3>Revision</h3><p>Conflict models.</p><div class="tag">Review</div></a>
+    <a href="l5b.html" target="_self" class="card revision"><div class="num">5<span>Pt B</span></div><h3>Lab</h3><p>Simulations.</p><div class="tag">Review</div></a>
+    <!-- L6 -->
+    <a href="l6.html" target="_self" class="card main-lesson"><div class="num">06</div><h3>Markets</h3><p>External factors.</p><div class="tag">Main</div></a>
+    <a href="l6a.html" target="_self" class="card revision"><div class="num">6<span>Pt A</span></div><h3>Revision</h3><p>SWOT analysis.</p><div class="tag">Review</div></a>
+    <a href="l6b.html" target="_self" class="card revision"><div class="num">6<span>Pt B</span></div><h3>Lab</h3><p>Trend modeling.</p><div class="tag">Review</div></a>
+    <!-- L7 -->
+    <a href="l7.html" target="_self" class="card main-lesson"><div class="num">07</div><h3>Digital</h3><p>Tech landscapes.</p><div class="tag">Main</div></a>
+    <a href="l7a.html" target="_self" class="card revision"><div class="num">7<span>Pt A</span></div><h3>Revision</h3><p>AI integration.</p><div class="tag">Review</div></a>
+    <a href="l7b.html" target="_self" class="card revision"><div class="num">7<span>Pt B</span></div><h3>Lab</h3><p>Agile cycles.</p><div class="tag">Review</div></a>
+    <!-- L8 -->
+    <a href="l8.html" target="_self" class="card main-lesson"><div class="num">08</div><h3>Crisis</h3><p>Leading uncertainty.</p><div class="tag">Main</div></a>
+    <a href="l8a.html" target="_self" class="card revision"><div class="num">8<span>Pt A</span></div><h3>Revision</h3><p>Mitigation plans.</p><div class="tag">Review</div></a>
+    <a href="l8b.html" target="_self" class="card revision"><div class="num">8<span>Pt B</span></div><h3>Lab</h3><p>Stress sessions.</p><div class="tag">Review</div></a>
+    <!-- L9 -->
+    <a href="l9.html" target="_self" class="card main-lesson"><div class="num">09</div><h3>Ethics</h3><p>Professional standards.</p><div class="tag">Main</div></a>
+    <a href="l9a.html" target="_self" class="card revision"><div class="num">9<span>Pt A</span></div><h3>Revision</h3><p>Governance frameworks.</p><div class="tag">Review</div></a>
+    <a href="l9b.html" target="_self" class="card revision"><div class="num">9<span>Pt B</span></div><h3>Lab</h3><p>Policy audits.</p><div class="tag">Review</div></a>
+    <!-- L10 -->
+    <a href="l10.html" target="_self" class="card main-lesson"><div class="num">10</div><h3>Innovation</h3><p>Creative solutions.</p><div class="tag">Main</div></a>
+    <a href="l10a.html" target="_self" class="card revision"><div class="num">10<span>Pt A</span></div><h3>Revision</h3><p>Testing theory.</p><div class="tag">Review</div></a>
+    <a href="l10b.html" target="_self" class="card revision"><div class="num">10<span>Pt B</span></div><h3>Lab</h3><p>Deployment.</p><div class="tag">Review</div></a>
+    <!-- L11 -->
+    <a href="l11.html" target="_self" class="card main-lesson"><div class="num">11</div><h3>Logistics</h3><p>Global operations.</p><div class="tag">Main</div></a>
+    <a href="l11a.html" target="_self" class="card revision"><div class="num">11<span>Pt A</span></div><h3>Revision</h3><p>Supply optimization.</p><div class="tag">Review</div></a>
+    <a href="l11b.html" target="_self" class="card revision"><div class="num">11<span>Pt B</span></div><h3>Lab</h3><p>Trade regulation.</p><div class="tag">Review</div></a>
+    <!-- L12 -->
+    <a href="l12.html" target="_self" class="card main-lesson"><div class="num">12</div><h3>Negotiation</h3><p>Executive value.</p><div class="tag">Main</div></a>
+    <a href="l12a.html" target="_self" class="card revision"><div class="num">12<span>Pt A</span></div><h3>Revision</h3><p>Psychology review.</p><div class="tag">Review</div></a>
+    <a href="l12b.html" target="_self" class="card revision"><div class="num">12<span>Pt B</span></div><h3>Lab</h3><p>Mock sessions.</p><div class="tag">Review</div></a>
+    <!-- L13 -->
+    <a href="l13.html" target="_self" class="card main-lesson"><div class="num">13</div><h3>Exec Comm</h3><p>Influence mastery.</p><div class="tag">Main</div></a>
+    <a href="l13a.html" target="_self" class="card revision"><div class="num">13<span>Pt A</span></div><h3>Revision</h3><p>Public relations.</p><div class="tag">Review</div></a>
+    <a href="l13b.html" target="_self" class="card revision"><div class="num">13<span>Pt B</span></div><h3>Lab</h3><p>Speech impact.</p><div class="tag">Review</div></a>
+    <!-- L14 -->
+    <a href="l14.html" target="_self" class="card main-lesson"><div class="num">14</div><h3>Talent</h3><p>Leadership pipeline.</p><div class="tag">Main</div></a>
+    <a href="l14a.html" target="_self" class="card revision"><div class="num">14<span>Pt A</span></div><h3>Revision</h3><p>HR planning.</p><div class="tag">Review</div></a>
+    <a href="l14b.html" target="_self" class="card revision"><div class="num">14<span>Pt B</span></div><h3>Lab</h3><p>Module design.</p><div class="tag">Review</div></a>
+    <!-- L15 -->
+    <a href="l15.html" target="_self" class="card main-lesson"><div class="num">15</div><h3>Synthesis</h3><p>Strategic implementation.</p><div class="tag">Final</div></a>
+    <a href="l15a.html" target="_self" class="card revision"><div class="num">15<span>Pt A</span></div><h3>Revision</h3><p>Capstone prep.</p><div class="tag">Review</div></a>
+    <a href="l15b.html" target="_self" class="card revision"><div class="num">15<span>Pt B</span></div><h3>Lab</h3><p>Final Defense.</p><div class="tag">Review</div></a>
+</main></div></body></html>
