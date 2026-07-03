@@ -3,233 +3,157 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Executive Learning Portal | 15 Modules</title>
-    
-    <!-- Professional Google Font -->
+    <title>Executive Learning Pathway</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-
     <style>
         :root {
-            --accent-maroon: #631111;    /* Deep Maroon */
-            --accent-maroon-light: #8b1a1a;
-            --bg-grey: #f2f2f2;         /* Light Grey Background */
-            --text-black: #1a1a1a;      /* Matte Black */
-            --text-grey: #555555;       /* Muted Grey */
+            --maroon: #631111;
+            --maroon-light: #8b1a1a;
+            --bg: #f2f2f2;
+            --black: #1a1a1a;
+            --grey: #555555;
             --card-white: #ffffff;
-            --border-grey: #dddddd;
-            --shadow: 0 4px 20px rgba(0,0,0,0.08);
-            --shadow-hover: 0 12px 30px rgba(0,0,0,0.15);
+            --border: #dddddd;
         }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
-            font-family: 'Inter', -apple-system, sans-serif;
-            background-color: var(--bg-grey);
-            color: var(--text-black);
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--black);
             line-height: 1.6;
             padding-bottom: 100px;
         }
-
-        /* Hero Header */
         header {
-            background-color: var(--text-black);
+            background-color: var(--black);
             color: white;
-            padding: 80px 24px;
+            padding: 60px 20px;
             text-align: center;
-            border-bottom: 6px solid var(--accent-maroon);
+            border-bottom: 6px solid var(--maroon);
         }
-
-        header h1 {
-            font-size: 2.8rem;
-            font-weight: 800;
-            letter-spacing: -1px;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-        }
-
-        header p {
-            font-size: 1.1rem;
-            color: #999;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .container {
-            max-width: 1400px;
-            margin: 60px auto;
-            padding: 0 24px;
-        }
-
-        /* The Grid System */
-        .learning-grid {
+        header h1 { font-size: 2.5rem; font-weight: 800; text-transform: uppercase; margin-bottom: 10px; }
+        header p { color: #999; }
+        .container { max-width: 1400px; margin: 50px auto; padding: 0 20px; }
+        .grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
             gap: 25px;
         }
-
-        /* Base Card Styling */
         .card {
             text-decoration: none;
             color: inherit;
-            border-radius: 4px;
+            background: var(--card-white);
             padding: 35px;
+            border-radius: 4px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
             display: flex;
             flex-direction: column;
-            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            position: relative;
-            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
             border: 1px solid transparent;
-            background-color: var(--card-white);
         }
-
-        /* Hover Animation */
         .card:hover {
             transform: translateY(-8px);
-            box-shadow: var(--shadow-hover);
-            border-color: var(--accent-maroon);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.1);
+            border-color: var(--maroon);
         }
-
-        /* Main Lesson Override */
-        .card.main-lesson {
-            background-color: var(--text-black);
-            color: #ffffff;
-            border: none;
-        }
-
-        .card.main-lesson .number {
-            color: var(--accent-maroon-light);
-            font-size: 3.5rem;
-            font-weight: 800;
-            line-height: 1;
-            margin-bottom: 10px;
-        }
-
-        /* Revision Parts Override */
-        .card.revision-part .number {
-            color: var(--text-black);
-            font-size: 2.2rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: baseline;
-            gap: 6px;
-        }
-
-        .card.revision-part .number span {
-            font-size: 0.9rem;
-            color: var(--accent-maroon);
-            font-weight: 800;
-            text-transform: uppercase;
-        }
-
-        h3 {
-            font-size: 1.25rem;
-            margin-bottom: 8px;
-            font-weight: 700;
-        }
-
-        p.desc {
-            font-size: 0.9rem;
-            color: var(--text-grey);
-        }
-
-        .main-lesson p.desc {
-            color: #888;
-        }
-
-        .tag {
-            margin-top: auto;
-            padding-top: 20px;
-            font-size: 0.65rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--accent-maroon);
-        }
-
-        .main-lesson .tag {
-            color: #999;
-        }
-
-        /* Mobile */
-        @media (max-width: 768px) {
-            header h1 { font-size: 1.8rem; }
-            .learning-grid { grid-template-columns: 1fr; }
-        }
+        .main-lesson { background-color: var(--black); color: white; border: none; }
+        .main-lesson .num { color: var(--maroon-light); font-size: 3.5rem; font-weight: 800; line-height: 1; }
+        .main-lesson p { color: #888; }
+        .revision-part .num { color: var(--black); font-size: 2.2rem; font-weight: 700; margin-bottom: 10px; }
+        .revision-part .num span { font-size: 0.9rem; color: var(--maroon); font-weight: 800; text-transform: uppercase; margin-left: 8px; }
+        h3 { font-size: 1.25rem; margin: 10px 0; font-weight: 700; }
+        p { font-size: 0.9rem; color: var(--grey); }
+        .tag { margin-top: auto; padding-top: 20px; font-size: 0.65rem; font-weight: 800; text-transform: uppercase; color: var(--maroon); }
+        @media (max-width: 768px) { .grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Executive Professional Pathway</h1>
-        <p>A structured 15-module curriculum for advanced leadership and strategic development.</p>
-    </header>
+<header>
+    <h1>Executive Professional Pathway</h1>
+    <p>Lessons 1 through 15: Strategic Leadership Curriculum</p>
+</header>
 
-    <div class="container">
-        <main class="learning-grid">
-            
-            <script>
-                // Array of 15 Professional Lesson Titles
-                const modules = [
-                    "Foundations of Leadership", 
-                    "Strategic Thinking", 
-                    "Operational Excellence",
-                    "Financial Acumen", 
-                    "Organizational Behavior", 
-                    "Market Analysis",
-                    "Digital Transformation", 
-                    "Crisis Management", 
-                    "Ethical Governance",
-                    "Innovation Systems", 
-                    "Global Logistics", 
-                    "Advanced Negotiation", 
-                    "Executive Communication",
-                    "Talent Development",
-                    "Strategic Implementation"
-                ];
+<div class="container">
+    <div class="grid">
+        <!-- LESSON 1 -->
+        <a href="#" class="card main-lesson"><div class="num">01</div><h3>Leadership Foundations</h3><p>Core frameworks for modern executive management.</p><div class="tag">Primary Module</div></a>
+        <a href="#" class="card revision-part"><div class="num">1<span>Part A</span></div><h3>Theory Review</h3><p>Critical analysis of module concepts.</p><div class="tag">Revision</div></a>
+        <a href="#" class="card revision-part"><div class="num">1<span>Part B</span></div><h3>Practical Lab</h3><p>Case-study application exercises.</p><div class="tag">Revision</div></a>
 
-                const grid = document.querySelector('.learning-grid');
+        <!-- LESSON 2 -->
+        <a href="#" class="card main-lesson"><div class="num">02</div><h3>Strategic Thinking</h3><p>Developing long-term competitive advantages.</p><div class="tag">Primary Module</div></a>
+        <a href="#" class="card revision-part"><div class="num">2<span>Part A</span></div><h3>Theory Review</h3><p>Critical analysis of module concepts.</p><div class="tag">Revision</div></a>
+        <a href="#" class="card revision-part"><div class="num">2<span>Part B</span></div><h3>Practical Lab</h3><p>Case-study application exercises.</p><div class="tag">Revision</div></a>
 
-                // Loop to generate 15 Modules (each with 1 main lesson + 2 revisions)
-                for (let i = 1; i <= 15; i++) {
-                    const title = modules[i-1];
-                    const num = i < 10 ? '0' + i : i;
+        <!-- LESSON 3 -->
+        <a href="#" class="card main-lesson"><div class="num">03</div><h3>Operational Excellence</h3><p>Optimizing organizational workflows.</p><div class="tag">Primary Module</div></a>
+        <a href="#" class="card revision-part"><div class="num">3<span>Part A</span></div><h3>Theory Review</h3><p>Critical analysis of module concepts.</p><div class="tag">Revision</div></a>
+        <a href="#" class="card revision-part"><div class="num">3<span>Part B</span></div><h3>Practical Lab</h3><p>Case-study application exercises.</p><div class="tag">Revision</div></a>
 
-                    // 1. Main Lesson Tile
-                    grid.innerHTML += `
-                        <a href="#" class="card main-lesson">
-                            <div class="number">${num}</div>
-                            <h3>${title}</h3>
-                            <p class="desc">Core concepts and leadership frameworks defining ${title.toLowerCase()}.</p>
-                            <span class="tag">Primary Module</span>
-                        </a>
-                        
-                        <a href="#" class="card revision-part">
-                            <div class="number">${i}<span>Part A</span></div>
-                            <h3>Revision Session</h3>
-                            <p class="desc">Deep-dive analysis and theoretical review of Module ${i} objectives.</p>
-                            <span class="tag">Review</span>
-                        </a>
+        <!-- LESSON 4 -->
+        <a href="#" class="card main-lesson"><div class="num">04</div><h3>Financial Acumen</h3><p>Understanding fiscal responsibility and metrics.</p><div class="tag">Primary Module</div></a>
+        <a href="#" class="card revision-part"><div class="num">4<span>Part A</span></div><h3>Theory Review</h3><p>Critical analysis of module concepts.</p><div class="tag">Revision</div></a>
+        <a href="#" class="card revision-part"><div class="num">4<span>Part B</span></div><h3>Practical Lab</h3><p>Case-study application exercises.</p><div class="tag">Revision</div></a>
 
-                        <a href="#" class="card revision-part">
-                            <div class="number">${i}<span>Part B</span></div>
-                            <h3>Practical Lab</h3>
-                            <p class="desc">Case-study application and workflow exercises for Module ${i}.</p>
-                            <span class="tag">Review</span>
-                        </a>
-                    `;
-                }
-            </script>
+        <!-- LESSON 5 -->
+        <a href="#" class="card main-lesson"><div class="num">05</div><h3>Organizational Behavior</h3><p>Managing culture and team dynamics.</p><div class="tag">Primary Module</div></a>
+        <a href="#" class="card revision-part"><div class="num">5<span>Part A</span></div><h3>Theory Review</h3><p>Critical analysis of module concepts.</p><div class="tag">Revision</div></a>
+        <a href="#" class="card revision-part"><div class="num">5<span>Part B</span></div><h3>Practical Lab</h3><p>Case-study application exercises.</p><div class="tag">Revision</div></a>
 
-        </main>
+        <!-- LESSON 6 -->
+        <a href="#" class="card main-lesson"><div class="num">06</div><h3>Market Analysis</h3><p>Evaluating external factors and trends.</p><div class="tag">Primary Module</div></a>
+        <a href="#" class="card revision-part"><div class="num">6<span>Part A</span></div><h3>Theory Review</h3><p>Critical analysis of module concepts.</p><div class="tag">Revision</div></a>
+        <a href="#" class="card revision-part"><div class="num">6<span>Part B</span></div><h3>Practical Lab</h3><p>Case-study application exercises.</p><div class="tag">Revision</div></a>
+
+        <!-- LESSON 7 -->
+        <a href="#" class="card main-lesson"><div class="num">07</div><h3>Digital Transformation</h3><p>Navigating the technological landscape.</p><div class="tag">Primary Module</div></a>
+        <a href="#" class="card revision-part"><div class="num">7<span>Part A</span></div><h3>Theory Review</h3><p>Critical analysis of module concepts.</p><div class="tag">Revision</div></a>
+        <a href="#" class="card revision-part"><div class="num">7<span>Part B</span></div><h3>Practical Lab</h3><p>Case-study application exercises.</p><div class="tag">Revision</div></a>
+
+        <!-- LESSON 8 -->
+        <a href="#" class="card main-lesson"><div class="num">08</div><h3>Crisis Management</h3><p>Leading through uncertainty and risk.</p><div class="tag">Primary Module</div></a>
+        <a href="#" class="card revision-part"><div class="num">8<span>Part A</span></div><h3>Theory Review</h3><p>Critical analysis of module concepts.</p><div class="tag">Revision</div></a>
+        <a href="#" class="card revision-part"><div class="num">8<span>Part B</span></div><h3>Practical Lab</h3><p>Case-study application exercises.</p><div class="tag">Revision</div></a>
+
+        <!-- LESSON 9 -->
+        <a href="#" class="card main-lesson"><div class="num">09</div><h3>Ethical Governance</h3><p>Integrity and professional standards.</p><div class="tag">Primary Module</div></a>
+        <a href="#" class="card revision-part"><div class="num">9<span>Part A</span></div><h3>Theory Review</h3><p>Critical analysis of module concepts.</p><div class="tag">Revision</div></a>
+        <a href="#" class="card revision-part"><div class="num">9<span>Part B</span></div><h3>Practical Lab</h3><p>Case-study application exercises.</p><div class="tag">Revision</div></a>
+
+        <!-- LESSON 10 -->
+        <a href="#" class="card main-lesson"><div class="num">10</div><h3>Innovation Systems</h3><p>Building a culture of creative solutions.</p><div class="tag">Primary Module</div></a>
+        <a href="#" class="card revision-part"><div class="num">10<span>Part A</span></div><h3>Theory Review</h3><p>Critical analysis of module concepts.</p><div class="tag">Revision</div></a>
+        <a href="#" class="card revision-part"><div class="num">10<span>Part B</span></div><h3>Practical Lab</h3><p>Case-study application exercises.</p><div class="tag">Revision</div></a>
+
+        <!-- LESSON 11 -->
+        <a href="#" class="card main-lesson"><div class="num">11</div><h3>Global Logistics</h3><p>Managing cross-border operations.</p><div class="tag">Primary Module</div></a>
+        <a href="#" class="card revision-part"><div class="num">11<span>Part A</span></div><h3>Theory Review</h3><p>Critical analysis of module concepts.</p><div class="tag">Revision</div></a>
+        <a href="#" class="card revision-part"><div class="num">11<span>Part B</span></div><h3>Practical Lab</h3><p>Case-study application exercises.</p><div class="tag">Revision</div></a>
+
+        <!-- LESSON 12 -->
+        <a href="#" class="card main-lesson"><div class="num">12</div><h3>Advanced Negotiation</h3><p>Securing value in complex partnerships.</p><div class="tag">Primary Module</div></a>
+        <a href="#" class="card revision-part"><div class="num">12<span>Part A</span></div><h3>Theory Review</h3><p>Critical analysis of module concepts.</p><div class="tag">Revision</div></a>
+        <a href="#" class="card revision-part"><div class="num">12<span>Part B</span></div><h3>Practical Lab</h3><p>Case-study application exercises.</p><div class="tag">Revision</div></a>
+
+        <!-- LESSON 13 -->
+        <a href="#" class="card main-lesson"><div class="num">13</div><h3>Executive Communication</h3><p>High-stakes influence and presentation.</p><div class="tag">Primary Module</div></a>
+        <a href="#" class="card revision-part"><div class="num">13<span>Part A</span></div><h3>Theory Review</h3><p>Critical analysis of module concepts.</p><div class="tag">Revision</div></a>
+        <a href="#" class="card revision-part"><div class="num">13<span>Part B</span></div><h3>Practical Lab</h3><p>Case-study application exercises.</p><div class="tag">Revision</div></a>
+
+        <!-- LESSON 14 -->
+        <a href="#" class="card main-lesson"><div class="num">14</div><h3>Talent Development</h3><p>Building high-performance leadership pipelines.</p><div class="tag">Primary Module</div></a>
+        <a href="#" class="card revision-part"><div class="num">14<span>Part A</span></div><h3>Theory Review</h3><p>Critical analysis of module concepts.</p><div class="tag">Revision</div></a>
+        <a href="#" class="card revision-part"><div class="num">14<span>Part B</span></div><h3>Practical Lab</h3><p>Case-study application exercises.</p><div class="tag">Revision</div></a>
+
+        <!-- LESSON 15 -->
+        <a href="#" class="card main-lesson"><div class="num">15</div><h3>Strategic Implementation</h3><p>The final synthesis of professional skills.</p><div class="tag">Primary Module</div></a>
+        <a href="#" class="card revision-part"><div class="num">15<span>Part A</span></div><h3>Theory Review</h3><p>Critical analysis of module concepts.</p><div class="tag">Revision</div></a>
+        <a href="#" class="card revision-part"><div class="num">15<span>Part B</span></div><h3>Practical Lab</h3><p>Case-study application exercises.</p><div class="tag">Revision</div></a>
+
     </div>
+</div>
 
 </body>
 </html>
